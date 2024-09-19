@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -27,8 +28,9 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -53,14 +55,102 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
+    font-family: "estedad";
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* TODO: REMOVE EXTRA FONTS LATER  */
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-Light.woff2") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-Regular.woff2") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-Medium.woff2") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-SemiBold.woff2") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-Bold.woff2") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "estedad";
+  src: url("./assets/fonts/estedad/Estedad-FD-Black.woff2") format("woff");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-light.woff2") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-Regular.woff2") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-Medium.woff2") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-SemiBold.woff2") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-Bold.woff2") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "pelak";
+  src: url("./assets/fonts/pelak/PelakFA-Black.woff2") format("woff");
+  font-weight: 900;
 }
