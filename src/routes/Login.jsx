@@ -1,8 +1,11 @@
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div>
+      <Button>ورود</Button>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
