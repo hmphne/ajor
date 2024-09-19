@@ -45,7 +45,7 @@ import { appAuthProvider } from '@/auth';
             ],
           },
           {
-            path: 'profile',
+            path: 'products',
             loader: protectedLoader,
             element: <Protected />,
             children: [
@@ -61,7 +61,7 @@ import { appAuthProvider } from '@/auth';
         path: '/logout',
         async action() {
           await appAuthProvider.signout();
-          return redirect('/profile');
+          return redirect('/products');
         },
       },
       {

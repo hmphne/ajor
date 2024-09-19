@@ -34,12 +34,12 @@ export async function loginAction({ request }) {
     };
   }
 
-  return redirect("/profile");
+  return redirect("/products");
 }
 
 export async function loginLoader() {
   if (appAuthProvider.isAuthenticated) {
-    return redirect("/profile");
+    return redirect("/products");
   }
   return null;
 }
