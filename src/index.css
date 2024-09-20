@@ -11,10 +11,14 @@
     --secondary: ;
     --secondary-foreground: 0 0% 9%;
     --border: 10px;
-    --input: #DDDDDD;
+    --input: #dddddd;
     --ring: 0 0% 3.9%;
     --radius: 10px;
+    --gray: #575756;
     --light-gray: #f7f7f7;
+    --dark-gray: #858585;
+    --red: #FF2640;
+    --green: #145125;
   }
 
   .dark {
@@ -124,4 +128,16 @@
   font-family: "pelak";
   src: url("./assets/fonts/pelak/PelakFA-Black.woff2") format("woff");
   font-weight: 900;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
