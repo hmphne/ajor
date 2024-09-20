@@ -8,6 +8,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        40: "40px"
       },
       colors: {
         background: "var(--background)",
@@ -21,11 +22,15 @@ export default {
           foreground: "var(--secondary-foreground)",
         },
         border: "var(--primary)",
-        input: "var(--primary)",
+        input: "var(--input)",
         ring: "var(--ring)",
+        gray: {
+          light: "var(--light-gray)",
+        },
       },
       fontFamily: {
         estedad: ["estedad", "system-ui"],
+        pelak: ["pelak", "system-ui"],
       },
     },
   },
