@@ -3,8 +3,10 @@ import path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
+import { baseRoute } from "./src/components/constants";
 
 export default defineConfig({
+  base: baseRoute,
   plugins: [
     react(),
     VitePWA({
@@ -16,9 +18,9 @@ export default defineConfig({
         "apple-touch-icon.png",
       ],
       manifest: {
-        name: "My React App",
-        short_name: "ReactApp",
-        description: "A React app with Vite, Tailwind, and PWA capabilities",
+        name: "ajor nik",
+        short_name: "nik",
+        description: "ajor nik pwa app",
         theme_color: "#ffffff",
         icons: [
           {
@@ -30,6 +32,33 @@ export default defineConfig({
             src: "pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
+          },
+        ],
+      },
+      workbox: {
+        // TODO: cache images and fonts later
+        runtimeCaching: [
+          {
+            urlPattern: /\/api\/.*$/,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "api-cache",
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+              },
+            },
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "image-cache",
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+              },
+            },
           },
         ],
       },

@@ -2,7 +2,7 @@ import { appAuthProvider } from "@/auth";
 import { clsx } from "clsx";
 import { redirect } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
-import { TOKEN_KEY } from "./constants";
+import { baseRoute, TOKEN_KEY } from "../components/constants";
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -10,7 +10,7 @@ export function cn(...inputs) {
 
 export function protectedLoader() {
   if (!appAuthProvider.isAuthenticated) {
-    return redirect(`/login`);
+    return redirect(`${baseRoute}login`);
   }
   return null;
 }
@@ -34,12 +34,12 @@ export async function loginAction({ request }) {
     };
   }
 
-  return redirect("/products");
+  return redirect(`${baseRoute}products`);
 }
 
 export async function loginLoader() {
   if (appAuthProvider.isAuthenticated) {
-    return redirect("/products");
+    return redirect(`${baseRoute}products`);
   }
   return null;
 }
