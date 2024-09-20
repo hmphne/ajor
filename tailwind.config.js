@@ -8,7 +8,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        40: "40px"
+        40: "40px",
       },
       colors: {
         background: "var(--background)",
@@ -25,8 +25,14 @@ export default {
         input: "var(--input)",
         ring: "var(--ring)",
         gray: {
+          DEFAULT: "var(--gray)",
           light: "var(--light-gray)",
+          dark: "var(--dark-gray)",
         },
+        red: {
+          DEFAULT: "var(--red)",
+        },
+        green: "var(--green)",
       },
       fontFamily: {
         estedad: ["estedad", "system-ui"],
