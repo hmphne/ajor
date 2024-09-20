@@ -6,7 +6,7 @@ const Layout = ({ step, children }) => {
 
   return (
     <div className="w-full px-4 py-12 flex flex-col">
-      <div className="flex justify-between items-center mb-16">
+      <div className="flex justify-between gap-9 items-center mb-16">
         <span className="bg-gray-light font-pelak font-black text-2xl p-8 rounded-40">
           {title}
         </span>
