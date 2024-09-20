@@ -1,5 +1,6 @@
 export const TOKEN_KEY = "ajorToken";
 export const baseRoute = "/partners/";
+export const baseUrl = "http://localhost:5173"
 
 export const loginSteps = [
   { id: 1, label: "ورود | ثبت نام" },
