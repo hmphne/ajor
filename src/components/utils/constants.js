@@ -8,8 +8,7 @@ export const initialTimer = 10;
 export const loginSteps = [
   { id: 1, label: "ورود | ثبت نام" },
   { id: 2, label: "ورود | ثبت نام" },
-  { id: 3, label: "ورود | ثبت نام" },
+  { id: 3, label: "ثبت اطلاعات" },
   { id: 4, label: "ثبت اطلاعات" },
   { id: 5, label: "ثبت اطلاعات" },
-  { id: 6, label: "ثبت اطلاعات" },
 ];
