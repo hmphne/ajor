@@ -10,7 +10,7 @@ export function cn(...inputs) {
 
 export function protectedLoader() {
   if (!appAuthProvider.isAuthenticated) {
-    return redirect(`${baseRoute}login`);
+    return redirect(`${baseRoute}/login`);
   }
   return null;
 }
@@ -34,12 +34,12 @@ export async function loginAction({ request }) {
     };
   }
 
-  return redirect(`${baseRoute}products`);
+  return redirect(`${baseRoute}/products`);
 }
 
 export async function loginLoader() {
   if (appAuthProvider.isAuthenticated) {
-    return redirect(`${baseRoute}products`);
+    return redirect(`${baseRoute}/products`);
   }
   return null;
 }

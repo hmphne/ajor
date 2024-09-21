@@ -2,7 +2,7 @@ import { baseRoute } from "@/components/utils/constants";
 import { redirect } from "react-router-dom";
 
 export const PublicPageLoader = () => {
-  return redirect(`${baseRoute}products`);
+  return redirect(`${baseRoute}/products`);
 };
 
 const Public = () => {
