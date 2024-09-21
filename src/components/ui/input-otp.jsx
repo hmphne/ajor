@@ -5,7 +5,7 @@ import { OTPInput, OTPInputContext } from "input-otp";
 import { cn } from "@/lib/utils";
 
 const InputOTP = React.forwardRef(
-  ({ className, containerClassName, ...props }, ref) => (
+  ({ className, containerClassName, value, ...props }, ref) => (
     <OTPInput
       dir="ltr"
       ref={ref}
@@ -13,6 +13,8 @@ const InputOTP = React.forwardRef(
         "flex items-center gap-2 has-[:disabled]:opacity-50",
         containerClassName
       )}
+      value={value}
+      autoFocus
       className={cn("disabled:cursor-not-allowed", className)}
       {...props}
     />
@@ -39,7 +41,7 @@ const InputOTPSlot = React.forwardRef(({ index, className, ...props }, ref) => {
       dir="ltr"
       ref={ref}
       className={cn(
-        "relative flex h-[50px] w-1/5 items-center justify-center border-y border-r border-input text-sm shadow-sm transition-all first:rounded-l-lg first:border-l last:rounded-r-lg",
+        "relative flex h-[50px] w-1/5 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-lg first:border-l last:rounded-r-lg",
         isActive && "z-10 ring-1 ring-ring",
         className
       )}
