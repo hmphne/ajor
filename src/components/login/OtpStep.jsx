@@ -1,11 +1,28 @@
+import { useContext, useState } from "react";
 import Timer from "../Timer";
 import { Button } from "../ui/button";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
+import { LoginContext } from "@/hooks/loginProvider";
+import { initialTimer } from "../utils/constants";
 
 const OtpStep = ({ formData, nextStep }) => {
-  const handleNext = () => {
-    nextStep();
+  const { updateData } = useContext(LoginContext);
+  const [error, setError] = useState(null);
+
+  const handleChange = (v) => {
+    setError(null);
+    updateData("otp", v);
   };
+
+  const handleNext = () => {
+    if (formData.otp.length < 5) {
+      setError("لطفا کد تایید را به درستی وارد کنید");
+    } else {
+      nextStep();
+    }
+  };
+
+  const sendOtp = async () => {};
 
   return (
     <div className="text-sm flex flex-col gap-6">
@@ -16,7 +33,7 @@ const OtpStep = ({ formData, nextStep }) => {
       </p>
       <div className="flex flex-col gap-1">
         <span className="pr-4 text-gray text-xs">کد تایید</span>
-        <InputOTP maxLength={5}>
+        <InputOTP maxLength={5} onChange={handleChange}>
           <InputOTPGroup>
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />
@@ -25,9 +42,12 @@ const OtpStep = ({ formData, nextStep }) => {
             <InputOTPSlot index={4} />
           </InputOTPGroup>
         </InputOTP>
+        {error && <p className="text-red pr-4 text-xs">{error}</p>}
       </div>
-      <Timer />
-      <Button onClick={handleNext} className='mt-[113px]'>تایید</Button>
+      <Timer initSecondsRemaining={initialTimer} onClick={sendOtp} />
+      <Button onClick={handleNext} className="mt-[113px]">
+        تایید
+      </Button>
     </div>
   );
 };
