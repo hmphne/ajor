@@ -9,8 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground py-3 shadow hover:bg-primary/90",
-        outline: "border border-primary text-primary py-2 shadow-sm bg-white",
+        default: "bg-primary text-primary-foreground py-3 hover:bg-primary/90",
+        outline: "border border-primary text-primary py-2 bg-white",
         text: "bg-white text-primary px-2 py-1 hover:underline", 
         secondary: "bg-secondary text-primary", 
       },
