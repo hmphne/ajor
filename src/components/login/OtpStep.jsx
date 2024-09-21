@@ -5,8 +5,8 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
 import { LoginContext } from "@/hooks/loginProvider";
 import { initialTimer } from "../utils/constants";
 
-const OtpStep = ({ formData, nextStep }) => {
-  const { updateData } = useContext(LoginContext);
+const OtpStep = ({ nextStep }) => {
+  const { formData, updateData } = useContext(LoginContext);
   const [error, setError] = useState(null);
 
   const handleChange = (v) => {
@@ -33,7 +33,7 @@ const OtpStep = ({ formData, nextStep }) => {
       </p>
       <div className="flex flex-col gap-1">
         <span className="pr-4 text-gray text-xs">کد تایید</span>
-        <InputOTP maxLength={5} onChange={handleChange}>
+        <InputOTP maxLength={5} onChange={handleChange} value={formData.otp}>
           <InputOTPGroup>
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />
