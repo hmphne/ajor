@@ -6,17 +6,16 @@ import {
 } from "react-router-dom";
 import Public, { PublicPageLoader } from "./Public";
 import Login from "./Login";
-import Protected from "./Protected";
+import Products from "./Products";
+import Cart from "./Cart";
 import Notfound from "./Notfound";
-import { Loader } from "lucide-react";
 import { loginAction, loginLoader, protectedLoader } from "@/lib/utils";
 import { appAuthProvider } from "@/auth";
 import { baseRoute } from "@/components/utils/constants";
 import { LoginProvider } from "@/hooks/loginProvider";
-// import PublicPage, { PublicPageLoader } from './Public';
-// import { loginAction, loginLoader, LoginPage } from './Login';
-// import Protected, { protectedLoader } from './Protected';
-// import NotFound from './NotFound';
+import Appshell from "@/components/ui/app-shell";
+import Order from "./Order";
+import Inquiry from "./Inquiry";
 
 const Layout = () => {
   return <Outlet />;
@@ -30,11 +29,19 @@ const LoginLayout = () => {
   );
 };
 
+const ProtectedLayout = () => {
+  return (
+    <Appshell>
+      <Outlet />
+    </Appshell>
+  );
+};
+
 const Routes = () => {
   const router = createBrowserRouter([
     {
       id: "root",
-      path: "/partners/",
+      path: "/partners",
       loader() {
         return { token: appAuthProvider.token };
       },
@@ -58,13 +65,29 @@ const Routes = () => {
           ],
         },
         {
-          path: "products",
-          loader: protectedLoader,
-          element: <Protected />,
+          path: "",
+          element: <ProtectedLayout />,
           children: [
             {
-              path: ":stepId",
-              element: <span>protected child</span>,
+              path: "products",
+              index: true,
+              loader: protectedLoader,
+              element: <Products />,
+            },
+            {
+              path: "cart",
+              loader: protectedLoader,
+              element: <Cart />,
+            },
+            {
+              path: "inquiry",
+              loader: protectedLoader,
+              element: <Inquiry />,
+            },
+            {
+              path: "order",
+              loader: protectedLoader,
+              element: <Order />,
             },
           ],
         },
@@ -74,7 +97,7 @@ const Routes = () => {
       path: "/logout",
       async action() {
         await appAuthProvider.signout();
-        return redirect(`${baseRoute}products`);
+        return redirect(`${baseRoute}/login`);
       },
     },
     {
@@ -82,9 +105,8 @@ const Routes = () => {
       element: <Notfound />,
     },
   ]);
-  return (
-    <RouterProvider router={router} fallbackElement={<Loader color="blue" />} />
-  );
+
+  return <RouterProvider router={router} />;
 };
 
 export default Routes;
