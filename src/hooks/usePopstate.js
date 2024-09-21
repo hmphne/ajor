@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 
 const usePopstate = (initialStep = 1) => {
-  const [step, setStep] = useState(initialStep);
-
-  useEffect(() => {
-    window.history.pushState({ step }, "", `?step=${step}`);
-  }, [step]);
+  const [currentStep, setCurrentStep] = useState(initialStep);
 
   useEffect(() => {
     const handlePopState = (event) => {
-      if (event.state?.step) {
-        setStep(event.state.step);
+      if (event.state && event.state.step) {
+        setCurrentStep(event.state.step);
+      } else {
+        setCurrentStep(initialStep);
       }
     };
 
@@ -21,14 +19,9 @@ const usePopstate = (initialStep = 1) => {
     };
   }, []);
 
-  const nextStep = () => setStep((prev) => prev + 1);
-  const prevStep = () => setStep((prev) => (prev > 1 ? prev - 1 : prev));
-
   return {
-    step,
-    nextStep,
-    prevStep,
-    setStep,
+    currentStep,
+    setCurrentStep,
   };
 };
 
