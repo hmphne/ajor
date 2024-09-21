@@ -22,7 +22,9 @@ const OtpStep = ({ nextStep }) => {
     }
   };
 
-  const sendOtp = async () => {};
+  const sendOtp = async () => {
+    updateData("otp", "");
+  };
 
   return (
     <div className="text-sm flex flex-col gap-6">
