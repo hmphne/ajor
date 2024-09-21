@@ -1,4 +1,4 @@
-import { TOKEN_KEY } from "./components/constants";
+import { TOKEN_KEY } from "./components/utils/constants";
 
 export const appAuthProvider = {
   isAuthenticated: !!localStorage.getItem(TOKEN_KEY),

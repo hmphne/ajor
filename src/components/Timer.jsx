@@ -1,6 +1,7 @@
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import { formatSecondsToMinutes } from "./utils/utils";
 
 const Timer = ({ initSecondsRemaining, onClick }) => {
   const [secondsRemaining, setSecondsRemaining] =
@@ -24,24 +25,17 @@ const Timer = ({ initSecondsRemaining, onClick }) => {
     };
   }, [secondsRemaining]);
 
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds % 60;
-    return `${minutes < 10 ? "0" : ""}${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
-  };
   return (
-    <div className="md:relative md:top-0 flex self-center text-xs md:text-sm text-[#878892] md:mt-2">
+    <div className="flex self-center text-xs text-gray">
       {secondsRemaining > 0 ? (
-        <span className="mt-3 mb-1">
-          {formatTime(secondsRemaining)} تا امکان درخواست مجدد کد
+        <span className="h-5">
+          {formatSecondsToMinutes(secondsRemaining)} تا امکان درخواست مجدد کد
         </span>
       ) : (
         <div className="flex items-center gap-2">
           <Button
             variant="secondary"
-            className="font-normal pl-0"
+            className="font-normal pl-0 py-0 h-auto"
             onClick={() => {
               setSecondsRemaining(initSecondsRemaining);
               onClick();

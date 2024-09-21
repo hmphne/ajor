@@ -2,7 +2,7 @@ import { appAuthProvider } from "@/auth";
 import { clsx } from "clsx";
 import { redirect } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
-import { baseRoute, TOKEN_KEY } from "../components/constants";
+import { baseRoute, TOKEN_KEY } from "../components/utils/constants";
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));

@@ -1,4 +1,4 @@
-import { loginSteps } from "../constants";
+import { loginSteps } from "../utils/constants";
 import ajor_logo from '@/assets/images/ajor.webp'
 
 const Layout = ({ step, children }) => {

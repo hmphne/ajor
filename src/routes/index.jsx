@@ -11,7 +11,7 @@ import Notfound from "./Notfound";
 import { Loader } from "lucide-react";
 import { loginAction, loginLoader, protectedLoader } from "@/lib/utils";
 import { appAuthProvider } from "@/auth";
-import { baseRoute } from "@/components/constants";
+import { baseRoute } from "@/components/utils/constants";
 import { LoginProvider } from "@/hooks/loginProvider";
 // import PublicPage, { PublicPageLoader } from './Public';
 // import { loginAction, loginLoader, LoginPage } from './Login';

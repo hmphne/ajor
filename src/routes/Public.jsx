@@ -1,4 +1,4 @@
-import { baseRoute } from "@/components/constants";
+import { baseRoute } from "@/components/utils/constants";
 import { redirect } from "react-router-dom";
 
 export const PublicPageLoader = () => {

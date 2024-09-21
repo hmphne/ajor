@@ -4,9 +4,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { LoginContext } from "@/hooks/loginProvider";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../constants";
-
-const pattern = /^(09\d{9}|9\d{9})$/;
+import { baseUrl, pattern } from "../utils/constants";
 
 const PhoneNumberStep = ({ nextStep }) => {
   const { formData, updateData } = useContext(LoginContext);
@@ -35,6 +33,7 @@ const PhoneNumberStep = ({ nextStep }) => {
       <div className="flex flex-col gap-1">
         <span className="pr-4 text-gray text-xs">شماره تماس</span>
         <Input
+          dir="ltr"
           value={formData.phoneNumber}
           onChange={handleChange}
           placeholder="مثال: ۹۱۲۳۴۵۶۷۸۹"
