@@ -2,9 +2,9 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { baseRoute } from "../utils/constants";
 import { navItems } from "../utils/utils";
 import IconUser from "../icons/IconUser";
-import IconNotif from "../icons/IconNotif";
 import ajor_logo from "@/assets/images/ajor.webp";
 import { Button } from "./button";
+import NotifMenu from "../NotifMenu";
 
 const Appshell = ({ children }) => {
   const { pathname } = useLocation();
@@ -23,13 +23,7 @@ const Appshell = ({ children }) => {
           <Button variant="text" size="icon" onClick={onIconClick}>
             <IconUser />
           </Button>
-          <Button
-            variant="text"
-            size="icon"
-            // TODO: opens menu
-          >
-            <IconNotif />
-          </Button>
+          <NotifMenu />
         </div>
         <img width={48} src={ajor_logo} />
       </header>
